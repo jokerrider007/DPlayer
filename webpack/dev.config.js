@@ -37,6 +37,9 @@ module.exports = {
                 enforce: 'pre',
                 loader: 'eslint-loader',
                 include: path.resolve(__dirname, '../src/js'),
+				// options: {
+				//   fix: true,
+				// }
             },
             {
                 test: /\.js$/,

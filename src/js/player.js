@@ -20,6 +20,7 @@ import HotKey from './hotkey';
 import ContextMenu from './contextmenu';
 import InfoPanel from './info-panel';
 import tplVideo from '../template/video.art';
+import libjass from 'libjass';
 
 let index = 0;
 const instances = [];
@@ -33,6 +34,11 @@ class DPlayer {
      * @constructor
      */
     constructor (options) {
+
+        libjass.ASS.fromUrl('https://sunnyli.github.io/videojs-ass/subs/OuterScienceSubs.ass').then(function (ass) {
+            console.log(ass);
+        });
+
         this.options = handleOption(options);
 
         if (this.options.video.quality) {
@@ -438,7 +444,7 @@ class DPlayer {
         this.on('error', () => {
             if (!this.video.error) {
                 // Not a video load error, may be poster load failed, see #307
-                return
+                return;
             }
             this.tran && this.notice && this.type !== 'webtorrent' & this.notice(this.tran('Video load failed'), -1);
         });

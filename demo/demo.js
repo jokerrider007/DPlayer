@@ -1,15 +1,15 @@
 // stats.js: JavaScript Performance Monitor
-const stats = new Stats();
-stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild(stats.dom);
-function animate () {
-    stats.begin();
-    // monitored code goes here
-    stats.end();
+// const stats = new Stats();
+// stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+// document.body.appendChild(stats.dom);
+// function animate () {
+//     stats.begin();
+//     // monitored code goes here
+//     stats.end();
 
-    requestAnimationFrame(animate);
-}
-requestAnimationFrame(animate);
+//     requestAnimationFrame(animate);
+// }
+// requestAnimationFrame(animate);
 
 initPlayers();
 handleEvent();
@@ -47,13 +47,16 @@ function initPlayers () {
           thumbnails: 'http://static.smartisanos.cn/pr/img/video/video_03_cc87ce5bdb.jpg'
         },
         subtitle: {
-          url: 'subtitle test'
+          url: 'subtitle test',
+          ass: 'test'
         },
         danmaku: {
           id: '9E2E3368B56CDBB4',
           api: 'https://api.prprpr.me/dplayer3/'
         }
     });
+    console.log(window);
+    
     // dp1
     window.dp1 = new DPlayer({
         container: document.getElementById('dplayer1'),

@@ -1,10 +1,12 @@
+// var libjass = require("libjass")
+// import _ from 'lodash';
+
 class Subtitle {
     constructor (container, video, options, events) {
         this.container = container;
         this.video = video;
         this.options = options;
         this.events = events;
-
         this.init();
     }
 
@@ -15,7 +17,7 @@ class Subtitle {
 
         if (this.video.textTracks && this.video.textTracks[0]) {
             const track = this.video.textTracks[0];
-
+            console.log(track);
             track.oncuechange = () => {
                 const cue = track.activeCues[0];
                 if (cue) {
